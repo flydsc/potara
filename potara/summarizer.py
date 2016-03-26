@@ -353,7 +353,6 @@ class Summarizer():
         for j in range(numsentences):
             if sentences[j].varValue == 1:
                 summary.append(fullsentences[j])
-
         return summary
 
     def summarize(self, wordlimit=100, fusion=True):
@@ -367,4 +366,6 @@ class Summarizer():
                                for cluster in self.clusters]
         else:
             self.candidates = self.clusters
+        # print self.candidates
         self.summary = self._selectSentences(wordlimit)
+        return self.summary

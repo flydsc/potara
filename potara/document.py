@@ -36,12 +36,11 @@ def postag(sentence):
     Postag utility using Stanford POStagger
     """
     global _POSTAGGER
-    if _POSTAGGER is None:
-        _POSTAGGER = nltk.tag.stanford.POSTagger(
-            _POSMODEL, _POSJAR, encoding='utf-8')
-
-    tagsentence = _POSTAGGER.tag(sentence)
-
+    # if _POSTAGGER is None:
+    #     _POSTAGGER = nltk.tag.stanford.StanfordPOSTagger(#nltk.tag.stanford.POSTagger
+    #         _POSMODEL, _POSJAR, encoding='utf-8')
+    # tagsentence = _POSTAGGER.tag(sentence)
+    tagsentence = nltk.pos_tag(sentence)
     # replace punctuation with PUNCT tag
     tagsentencepunct = []
     for tok, pos in tagsentence:

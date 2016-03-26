@@ -18,16 +18,16 @@ Favre for the ILP strategy, and Filippova for the sentence fusion.
 
 # How To
 
-Basically, you can use the following
+Basically, you can use the following, let's say file1.txt as an example input
 
-```
-s = Summarizer()
-print("Adding docs")
-s.setDocuments([document.Document('pathtofilenumber' + n)
-       for i in range(1,11)])
-print("summarizing")
-s.summarize()
-print(s.summary())
+```python
+from potara import summarizer
+from potara import document
+doc1 = document.Document('file1.txt')
+
+s = summarizer.Summarizer(minbigramcount=1)
+s.setDocuments([doc1])
+print s.summarize(wordlimit=10)
 ```
 
 There's some preprocessing involved and a sentence fusion step, but I
